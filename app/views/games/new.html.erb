@@ -1,0 +1,15 @@
+<div id="random-letters">
+  <% @letters.each do |letter| %>
+    <p class="letters"><%= letter %></p>
+  <% end %>
+</div>
+
+<br>
+
+<p>What is the longest word you can find ?</p>
+
+<form action="/score" method="post">
+  <input type="text" name="input_word">
+  <input type="submit" value="Check your answer <%= params[:input_word] %> ">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
